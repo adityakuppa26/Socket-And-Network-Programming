@@ -1,0 +1,48 @@
+// date.x
+
+program DATE_PROG
+{
+version DATE_VERS
+{
+long BIN_DATE(void)=1;
+string STR_DATE(long)=2;
+}=1;
+}=0x31234567;
+
+// date_proc.c
+
+//server
+long* bin_date_1(NULL)
+{
+static long timeval;
+long time();
+timeval=time((long*)0);
+return &timeval;
+}
+char** str_date_1(long* lresult)
+{
+static char* time;
+char* ctime();
+time=ctime(lresult);
+return &time;
+}
+
+// rdate.c
+
+//client
+#include<rpc/rpc.h>
+#include "date.h"
+int main (int argc,char* argv[])
+{
+long* lresult;
+Client* cl;
+char** sresult;
+char* servername;
+servername=argv[1];
+cl=clnt_create(servername,DATE_PROG,DATE_VERS,"udp");
+lresult=bin_date_1(NULL,cl);
+sresult=str_date_1(lresult,cl);
+printf("Time : %ld",*lresult);
+printf("\n Date : %s",*sresult);
+return 0;
+}
