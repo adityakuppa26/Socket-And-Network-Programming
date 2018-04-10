@@ -42,10 +42,12 @@ The connect() system call connects the socket referred to by the file descriptor
 # The sockaddr_in structure :
 
 struct sockaddr_in{
-sa_family_t   sin_family   /*Address/Protocol Family*/ (we’ll use PF_INET)
+sa_family_t   sin_family   /*Address/Protocol Family*/ 
 unit16_t   sin_port     /* 16-bit Port number   --Network Byte Ordered-*/
-struct in_addr  sin_addr /*A struct for the 32 bit IP Address  */ unsigned char sin_zero[8] /*Just ignore this it is just padding*/
-struct in_addr
-{ unit32_t     s_addr   /*32 bit IP Address   --Network Byte Ordered-- */ };
+struct in_addr  sin_addr{ /*A struct for the 32 bit IP Address  */ 
+struct in_addr{ 
+unit32_t     s_addr  ; /*32 bit IP Address   --Network Byte Ordered-- */ 
+};
+unsigned char sin_zero[8] /*Just ignore this it is just padding*/
 };
 
