@@ -1,4 +1,4 @@
-# Socket-Programming
+ # Socket-Programming
 
 
 # What is socket programming?
@@ -31,7 +31,8 @@ It extracts the first connection request on the queue of pending connections for
 
 # Stages for Client
 
-# 1.Socket connection: Exactly same as that of server’s socket creation
+# 1.Socket connection: 
+Exactly same as that of server’s socket creation
 
 # 2.Connect: 
 int connect(int sockfd, const struct sockaddr *addr,  
@@ -41,9 +42,10 @@ The connect() system call connects the socket referred to by the file descriptor
 # The sockaddr_in structure :
 
 struct sockaddr_in{
-sa_family_t  sin_family   /*Address/Protocol Family*/ (we’ll use PF_INET) unit16_t       sin_port     /* 16-bit Port number   --Network Byte Ordered-
-*/
+sa_family_t   sin_family   /*Address/Protocol Family*/ (we’ll use PF_INET)
+unit16_t   sin_port     /* 16-bit Port number   --Network Byte Ordered-*/
 struct in_addr  sin_addr /*A struct for the 32 bit IP Address  */ unsigned char sin_zero[8] /*Just ignore this it is just padding*/
+struct in_addr
+{ unit32_t     s_addr   /*32 bit IP Address   --Network Byte Ordered-- */ };
 };
-struct in_addr{ unit32_t     s_addr   /*32 bit IP Address   --Network Byte Ordered-- */ };
 
