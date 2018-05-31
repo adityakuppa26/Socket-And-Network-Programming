@@ -47,14 +47,14 @@ It extracts the first connection request on the queue of pending connections for
   The connect() system call connects the socket referred to by the file descriptor sockfd to the address specified by addr. Server’s       address and port is specified in addr.  
   
 **The sockaddr_in structure**
-
+```
 struct sockaddr_in{  
-sa_family_t   sin_family   /*Address Protocol Family*/   
-unit16_t   sin_port     /*16-bit Port number   --Network Byte Ordered-*/  
-struct in_addr  sin_addr{  /*A struct for the 32 bit IP Address  */   
+sa_family_t   sin_family            /*Address Protocol Family*/   
+unit16_t   sin_port                /*16-bit Port number   --Network Byte Ordered-*/  
+struct in_addr  sin_addr{          /*A struct for the 32 bit IP Address  */   
 struct in_addr{   
-unit32_t     s_addr  ;  /*32 bit IP Address   --Network Byte Ordered-- */   
+unit32_t     s_addr  ;            /*32 bit IP Address   --Network Byte Ordered-- */   
 };  
-unsigned char sin_zero[8]  /*Just ignore this it is just padding*/  
+unsigned char sin_zero[8]         /*Just ignore this it is just padding*/  
 };  
-
+```
